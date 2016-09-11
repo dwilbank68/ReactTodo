@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
+import TodoSearch from 'TodoSearch';
 
 const TodoApp = React.createClass({
 
@@ -11,12 +12,22 @@ const TodoApp = React.createClass({
                 {id: 2, text: 'clearn yard'},
                 {id: 3, text: 'nothing'},
                 {id: 4, text: 'bleehhhh'},
-            ]
+            ],
+            showCompleted: false,
+            searchText: ''
         };
     },
 
     handleAddTodo(text){
         alert('new todo: ' + text);
+    },
+
+    handleSearch(showCompleted, searchText){
+        this.setState({
+            showCompleted:showCompleted,
+            searchText:searchText.toLowerCase()
+        });
+
     },
 
     render() {
@@ -26,6 +37,7 @@ const TodoApp = React.createClass({
                 <div className="row">
 
                     <div className="columns medium-6 large-4 small-centered">
+                        <TodoSearch onSearch={this.handleSearch}/>
                         <TodoList todos={todos}/>
                     </div>
                     <AddTodo    onAddTodo={this.handleAddTodo}/>
