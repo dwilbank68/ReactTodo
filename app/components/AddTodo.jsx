@@ -17,7 +17,7 @@ const AddTodo = React.createClass({
 
     render() {
         return (
-            <div>
+            <div className="container__footer">
                 <form   ref="form"
                         onSubmit={this.handleSubmit}
                         className="add-todo-form">
