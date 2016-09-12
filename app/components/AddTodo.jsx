@@ -9,6 +9,7 @@ const AddTodo = React.createClass({
         var text = this.refs.task.value;
         if (text.length > 0) {
             this.props.onAddTodo(text);
+            this.refs.task.value = '';
         } else {
             this.refs.task.focus();
         }
